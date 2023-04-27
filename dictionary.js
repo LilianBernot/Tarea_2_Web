@@ -1,7 +1,5 @@
 import {restriccionesSanitarias} from './planificacion.js'
 
-// restriccion between 0 and 90
-
 class Destination{
     constructor(codigo, name, restriction){
         this.codigo = codigo;
@@ -19,9 +17,15 @@ class Destination{
     }
 }
 
+// restriccion between 0 and 90
 export const listDestinations = [
     new Destination('CHI01', 'SANTIAGO', 5),
-    new Destination('FRA01', 'PARIS', 100),
+    new Destination('CHI02', 'CONCEPCION', 90),
+    new Destination('FRA01', 'PARIS', 90),
+    new Destination('ESP01', 'BARCELONE', 79),
+    new Destination('ARG01', 'BUENOS_AIRES', 60),
+    new Destination('ITA01', 'ROME', 30),
+    new Destination('COL01', 'BOGOTA', 50),
 ]
 
 export function print_destinations_possible (){
@@ -42,7 +46,8 @@ export function test_entry (input){
     }
     for (let i = 0; i < listDestinations.length; i++){
         if(input == listDestinations[i].codigo){
-            return true;
+            return (i + 1);
+            // return (i + 1); // just not to have a 0 as an output !
         }
     }
     console.log("Este codigo no hace parte de nuestros datos !");
