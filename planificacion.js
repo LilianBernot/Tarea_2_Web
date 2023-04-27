@@ -6,7 +6,6 @@ export function abrirSistemas(delay, callback) {
   /* La funcion recibe como parametro un “delay” que es la cantidad de milisegundos que demorará el sistema en abrirse
   delay DEBE ser mayor o igual a 3300 */
 
-  // setTimeout( () => { console.log("Puede iniciar el proceso")}, delay);
   console.log("Preparando el sistema...");
   setTimeout(() => {
     console.log("Puede iniciar el proceso");
@@ -14,7 +13,7 @@ export function abrirSistemas(delay, callback) {
   }, delay);
 }
 
-export function cerrarSistemas(){
+export async function cerrarSistemas(){
    //No se modifica el código
    console.log("Sistemas cerrados de forma segura");
 }
@@ -37,13 +36,16 @@ Recuerde que restricción es un entero, por ende lo que está en este código es
         emiteCertificado(destino, objReturn.restriccion)  
         .then(result => {
           console.log(result);
+          cerrarSistemas();
         })
             .catch(error => {
             console.log(error);
+            cerrarSistemas();
         });
       }
       else {
-        resolve("Restriccion: Hay restricciones, no podrá ir a ese destino.");
+        console.log("   Restriccion: Hay restricciones, no podrá ir a ese destino.");
+        cerrarSistemas();
       }
     }, 3000 )
   })
