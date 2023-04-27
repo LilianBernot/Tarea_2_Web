@@ -31,3 +31,24 @@ export function print_destinations_possible (){
     }
     console.log("\n");
 }
+    
+
+const regex = /^[A-Z]{3}\d{2}$/; // 3 leters, 2 numbers and that's it
+export function test_entry (input){
+    let valid = regex.test(input);
+    if (valid !== true){
+        console.log("Este codigo no es valido !")
+        return false;
+    }
+    let exist = false;
+    for (let i = 0; i < listDestinations.length; i++){
+        if(input == listDestinations[i].codigo){
+            exist = true;
+        }
+    }
+    if (exist !== true){
+        console.log("Este codigo no hace parte de nuestros datos !");
+        return false;
+    }
+    return true;
+}
