@@ -1,19 +1,18 @@
 // //Biblioteca planificacion.js
 
 
-// function abrirSistemas(delay) {
-// //Si lo desea este código puede modificarse
+export function abrirSistemas(delay) {
+    //Si lo desea este código puede modificarse
 
-// /*La funcion recibe como parametro un “delay” que es la cantidad de milisegundos que demorará el sistema en abrirse
-// delay DEBE ser mayor o igual a 3300
-// */
-//   setTimeout( () => { console.log("Puede iniciar el proceso")}, delay);
-// }
+    /* La funcion recibe como parametro un “delay” que es la cantidad de milisegundos que demorará el sistema en abrirse
+    delay DEBE ser mayor o igual a 3300 */
+  setTimeout( () => { console.log("Puede iniciar el proceso")}, delay);
+}
 
-// function cerrarSistemas(){
-//    //No se modifica el código
-//    console.log("sistemas cerrados de forma segura");
-// }
+export function cerrarSistemas(){
+   //No se modifica el código
+   console.log("sistemas cerrados de forma segura");
+}
 
 // function restriccionesSanitarias(restriccion, destino) {
 // /*Modifique el código para manejar la restricción.
