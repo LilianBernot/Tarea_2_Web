@@ -1,0 +1,6 @@
+Create a dict of codigo, names and restriccions of cities in dictinary.js 
+Present it when we launch the code
+
+In planification.js find the  restriccion of the city input 
+restriccionesSanitarias
+emiteCertificado if there is no restriccion

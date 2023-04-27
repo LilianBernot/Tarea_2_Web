@@ -1,6 +1,10 @@
 import { abrirSistemas, cerrarSistemas } from "./planificacion.js";
 import {readline, readLineAsync} from "./input.js"
+import { listDestinations, print_destinations_possible } from "./dictionary.js";
 
+console.log("ESTE harramienta esta desarrollado para indicar un nivel de restriccion sobre su destinacion.");
+
+print_destinations_possible();
 
 let codigo = await readLineAsync("Escribe el codigo de tu destinacion : ");
 
@@ -16,4 +20,3 @@ readline.close(); // close it just now, not before
 
 console.log("Vamos a " + codigo + " !");
 abrirSistemas(3300);
-
