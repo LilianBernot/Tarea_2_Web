@@ -40,15 +40,11 @@ export function test_entry (input){
         console.log("Este codigo no es valido !")
         return false;
     }
-    let exist = false;
     for (let i = 0; i < listDestinations.length; i++){
         if(input == listDestinations[i].codigo){
-            exist = true;
+            return true;
         }
     }
-    if (exist !== true){
-        console.log("Este codigo no hace parte de nuestros datos !");
-        return false;
-    }
-    return true;
+    console.log("Este codigo no hace parte de nuestros datos !");
+    return false;
 }
