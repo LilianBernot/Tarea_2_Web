@@ -6,17 +6,19 @@ console.log("ESTE harramienta esta desarrollado para indicar un nivel de restric
 
 print_destinations_possible();
 
-let codigo = await readLineAsync("Escribe el codigo de tu destinacion : ");
+listDestinations[1].restrictions_func();
 
-const regex = /^[A-Z]{3}\d{2}$/; // 3 leters, 2 numbers and that's it
+// let codigo = await readLineAsync("Escribe el codigo de tu destinacion : ");
 
-let valid = regex.test(codigo);
-while(valid !== true){
-    console.log("Este codigo no es valido !");
-    codigo = await readLineAsync("   Intenta otra vez : ");
-    valid = regex.test(codigo);
-}
-readline.close(); // close it just now, not before
+// const regex = /^[A-Z]{3}\d{2}$/; // 3 leters, 2 numbers and that's it
 
-console.log("Vamos a " + codigo + " !");
-abrirSistemas(3300);
+// let valid = regex.test(codigo);
+// while(valid !== true){
+//     console.log("Este codigo no es valido !");
+//     codigo = await readLineAsync("   Intenta otra vez : ");
+//     valid = regex.test(codigo);
+// }
+// readline.close(); // close it just now, not before
+
+// console.log("Vamos a " + codigo + " !");
+// abrirSistemas(3300);

@@ -1,29 +1,6 @@
-// export const Dictionary = {};
+import {restriccionesSanitarias} from './planificacion.js'
 
-// const myDict = {
-//     key1: 'value1',
-//     key2: 2,
-//     key3: true
-// };
-
-// console.log(myDict.key1); // logs 'value1'
-// console.log(myDict['key2']); // logs 2
-
-
-// class MyClass {
-//     constructor(prop1, prop2) {
-//       this.prop1 = prop1;
-//       this.prop2 = prop2;
-//     }
-  
-//     myMethod() {
-//       console.log('Hello, world!');
-//     }
-// }
-
-// const myObject = new MyClass('value1', 2);
-// console.log(myObject.prop1); // logs 'value1'
-// myObject.myMethod(); // logs 'Hello, world!'
+// restriccion between 0 and 90
 
 class Destination{
     constructor(codigo, name, restriction){
@@ -31,11 +8,20 @@ class Destination{
         this.name = name;
         this.restriction = restriction;
     }
+    restrictions_func(){
+        restriccionesSanitarias(this.restriction, this.name)
+        .then(result => {
+            console.log(result);
+        })
+            .catch(error => {
+            console.log(error);
+        });
+    }
 }
 
 export const listDestinations = [
     new Destination('CHI01', 'SANTIAGO', 5),
-    new Destination('FRA01', 'PARIS', 1),
+    new Destination('FRA01', 'PARIS', 100),
 ]
 
 export function print_destinations_possible (){
