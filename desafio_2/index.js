@@ -1,6 +1,6 @@
 import { readLineAsync, readline, test_rotation } from "./input.js";
 import { modify_file, read_file, readFileAndPrintData, write_something } from "./file.js";
-import { modify_data } from "./data.js";
+import { modify_data, modify_data_unicode } from "./data.js";
 
 import path from 'path';
 import * as fs from 'fs';
@@ -31,8 +31,8 @@ console.log("ESTE herramienta esta desarrollado para cifrar un archivo con la ro
 // console.log("El archivo a cifrar : " + path_name + input_name);
 // readline.close();
 
-let path_name = '/';
-let input_name = 'input.txt';
+// let path_name = '/';
+// let input_name = 'input.txt';
 
 // const parsedPath = path.parse(input_name);
 // const output_name = parsedPath.name + '_cifrado' + parsedPath.ext;
@@ -42,7 +42,8 @@ let input_name = 'input.txt';
 // const data = await read_file(path_name + input_name);
 // console.log("Data :" + data);
 
-const modified_data = modify_data('agc', 1);
+// const modified_data = modify_data('abc', 1);
+const modified_data = modify_data_unicode('abcü', 10);
 
 // write_something(path_name + output_name, "contenido : " + data);
 
