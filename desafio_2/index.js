@@ -1,5 +1,5 @@
 import { readLineAsync, readline, test_rotation } from "./input.js";
-import { modify_file, read_file, readFileAndPrintData, write_something } from "./file.js";
+import { read_file, write_something } from "./file.js";
 import { modify_data_unicode } from "./data.js";
 
 import path from 'path';
@@ -27,28 +27,17 @@ while (fs.existsSync(__dirname + path_name + input_name) !== true){
     path_name = await readLineAsync("   Escribe la ruta relativa del archivo: ");
     input_name = await readLineAsync("   Escribe el nombre del archivo: ");
 }
-// console.log("El archivo a cifrar : " + path_name + input_name);
 readline.close();
-
-// let rotation = 10;
-// let path_name = '/';
-// let input_name = 'input.txt';
 
 const parsedPath = path.parse(input_name);
 const output_name = parsedPath.name + '_cifrado' + parsedPath.ext;
-console.log('Nombre del output: ' + output_name);
 
 // ////////////////////////// Data reading and modification
 const data = await read_file(path_name + input_name);
 
 const modified_data = modify_data_unicode(data, rotation);
 
-// write_something(path_name + output_name, "contenido : " + data);
+write_something(path_name + output_name, modified_data);
 
-// readFileAndPrintData(path_name + input_name);
-
-// write_something(__dirname + '/cifra_.txt', "z_efèqy aizdh aizu dhaiuz sq");
-
-// modify_file("/input.txt");
-
+console.log("El archivo ha sido cifrado!");
 process.exit(); 

@@ -1,10 +1,3 @@
-const asciiCodes = [97, 98, 99, 100, 
-    101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 
-    111, 112, 113, 114, 115, 116, 117, 118, 119, 120,
-    121, 122, 
-    164,
-    160,  130, 161, 162, 163, 129];
-
 const unicode = ['\\u0061', "\\u0062", "\\u0063", "\\u0064", "\\u0065", "\\u0066", "\\u0067", "\\u0068", "\\u0069", 
     '\\u006A', '\\u006B', '\\u006C', '\\u006D', '\\u006E', '\\u006F', 
     '\\u0070', '\\u0071', '\\u0072','\\u0073', '\\u0074', '\\u0075', 
@@ -18,13 +11,8 @@ const unicode_to_unicode = [{value: '\u0061'}, {value: '\u0062'}, {value: '\u006
     {value: '\u0076'}, {value: '\u0077'}, {value: '\u0078'}, {value: '\u0079'}, {value: '\u007A'}, 
     {value: '\u00F1'}, {value: '\u00E1'}, {value: '\u00E9'}, {value: '\u00ED'}, {value: '\u00F3'}, {value: '\u00FC'}]
 
-// for (let i = 20; i < unicode_to_unicode.length; i++) {
-//     console.log(unicode_to_unicode[i].value);
-// }
-
 
 export function modify_data_unicode(inputString, rotation){
-    console.log("Data before : " + inputString);
 
     const parts = inputString.split('\n');
     let asciiString = '';
@@ -54,7 +42,6 @@ export function modify_data_unicode(inputString, rotation){
         }
         asciiString += '\n';
     }
-    console.log("Data after : " + asciiString);
     return asciiString;
 }
 
