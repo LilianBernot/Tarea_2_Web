@@ -13,10 +13,10 @@ export function read_file(filename){
           if (err) {
             reject(err);
           } else {
-            if (data.toLowerCase() !== data){
-              console.log("Utilizacion de LowerCase !");
-              resolve(data.toLowerCase());
-            }
+            // if (data.toLowerCase() !== data){
+            //   console.log("Utilizacion de LowerCase !");
+            //   resolve(data.toLowerCase());
+            // }
             resolve(data);
           }
         });

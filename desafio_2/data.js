@@ -14,15 +14,15 @@ const unicode_to_unicode = [{value: '\u0061'}, {value: '\u0062'}, {value: '\u006
 
 export function modify_data_unicode(inputString, rotation){
 
-    const parts = inputString.split('\n');
+    const parts = inputString.split('\n'); // seperation per ligne
     let asciiString = '';
     
     for (let i = 0; i < parts.length; i++) {
         let part = parts[i];
-        let seperate_space = part.split(" ");
+        let seperate_space = part.split(" "); // separation for white spaces
 
         for(let j = 0; j < seperate_space.length; j++){
-            let sep = seperate_space[j];
+            let sep = seperate_space[j]; // normal string with normal characters
 
             for (let k = 0; k < sep.length; k++){
                 var hex = sep[k].codePointAt(0).toString(16);
