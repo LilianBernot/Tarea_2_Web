@@ -22,40 +22,37 @@ const unicode_to_unicode = [{value: '\u0061'}, {value: '\u0062'}, {value: '\u006
 //     console.log(unicode_to_unicode[i].value);
 // }
 
-export function modify_data(data, rotation){
-    console.log("Data before : " + data);
-    // Attention, ne prend pas en compte les caractères sépciaux pour l'instant
+
+export function modify_data_unicode(inputString, rotation){
+    console.log("Data before : " + inputString);
+
+    const parts = inputString.split('\n');
     let asciiString = '';
-    for (let i = 0; i < data.length; i++) {
-        let charCode = data.charCodeAt(i);
-        let index = asciiCodes.indexOf(charCode);
+    
+    for (let i = 0; i < parts.length; i++) {
+        let part = parts[i];
+        let seperate_space = part.split(" ");
 
-        let new_index = (index + rotation) % asciiCodes.length;
-        let new_code = asciiCodes[new_index];
-        let new_char = String.fromCharCode(new_code);
-        asciiString += new_char;
-    }
-    console.log("Data after : " + asciiString);
-    return asciiString;
-}
+        for(let j = 0; j < seperate_space.length; j++){
+            let sep = seperate_space[j];
 
+            for (let k = 0; k < sep.length; k++){
+                var hex = sep[k].codePointAt(0).toString(16);
+                var result = "\\u" + "0000".substring(0, 4 - hex.length) + hex;
+                
+                if(unicode.includes(result) !== true){
+                    asciiString += sep[k]; // we don't touch it, it's not a character we want to change
+                } else{
+                    let index = unicode.indexOf(String(result));
+                    let new_index = (index + rotation) % unicode.length;
 
-export function modify_data_unicode(data, rotation){
-    console.log("Data before : " + data);
-    // Attention, ne prend pas en compte les caractères sépciaux pour l'instant
-    let asciiString = '';
-    for (let i = 0; i < data.length; i++) {
-
-        var hex = data[i].codePointAt(0).toString(16);
-        var result = "\\u" + "0000".substring(0, 4 - hex.length) + hex;
-
-        let index = unicode.indexOf(String(result));
-        console.log('index: ' + index);
-        let new_index = (index + rotation) % unicode.length;
-        console.log(new_index);
-        
-        let new_char = unicode_to_unicode[new_index].value;
-        asciiString += new_char;
+                    let new_char = unicode_to_unicode[new_index].value;
+                    asciiString += new_char;
+                }
+            }
+            asciiString += ' ';
+        }
+        asciiString += '\n';
     }
     console.log("Data after : " + asciiString);
     return asciiString;

@@ -21,7 +21,7 @@ export function test_rotation(rotation){
         console.log("Rotacion invalida ! Por favor, escribe un nombre entero positivo.");
         return false;
     } else {
-        console.log("Eso sera la rotacion: " + num);
+        console.log("   La rotacion sera de " + num);
         return true;
     }
 }
