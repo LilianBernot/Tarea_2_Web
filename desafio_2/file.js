@@ -52,13 +52,70 @@ export function modify_file(filename){
     });
 }
 
-export function write_something(path, content){
-    fs.writeFile(path, content, 'utf8', (err) => {
-        if (err) {
-            console.error(err);
-            return;
-        }
-        console.log('File saved!');
-        process.exit(); 
+export function read_file(filename){
+
+    // fs.readFile(__dirname + filename, 'utf8', (err, data) => {
+    //     if (err) {
+    //         console.error(err);
+    //         return;
+    //     }
+    //     console.log(data);
+    //     console.log('Closing process');
+    //     return data;
+    //     // process.exit(); // for the terminal to end
+    // });
+
+    return new Promise((resolve, reject) => {
+        fs.readFile(__dirname + filename, 'utf8', (err, data) => {
+          if (err) {
+            reject(err);
+          } else {
+            resolve(data);
+          }
+        });
+        process.exit();
+      });
+}
+
+export async function readFileAndPrintData(filename) {
+    try {
+      const data = await read_file(filename);
+      console.log('This is the data ' + data);
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+export function write_something(filename, content){
+    // fs.writeFile(__dirname + path, content, 'utf8', (err) => {
+    //     if (err) {
+    //         console.error(err);
+    //         return;
+    //     }
+    // });
+    // console.log('File saved!');
+    // process.exit(); 
+
+    // fs.writeFile(__dirname + path, content, (err) => {
+    //     if (err) {
+    //       console.error(err);
+    //     } else {
+    //       console.log('Writing finished');
+    //     }
+    // });
+    // process.exit(); 
+
+    return new Promise((resolve, reject) => {
+        console.log("Escribiendo el archivo cifrado...");
+        fs.writeFile(__dirname + filename, content, (err) => {
+          if (err) {
+            console.log("Error");
+            reject(err);
+            process.exit(); 
+          } else {
+            resolve('Writing finished in promise');
+            process.exit(); 
+          }
+        });
     });
 }
