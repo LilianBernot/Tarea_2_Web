@@ -29,6 +29,7 @@ export const listDestinations = [
 ]
 
 export function print_destinations_possible (){
+    // Prints the destinations that are disponible
     console.log("Aca son las destinaciones que existen : ")
     for (let i = 0; i < listDestinations.length; i++) {
         console.log("- Ciudad " + listDestinations[i].name + ', codigo : ' + listDestinations[i].codigo);
@@ -39,6 +40,8 @@ export function print_destinations_possible (){
 
 const regex = /^[A-Z]{3}\d{2}$/; // 3 leters, 2 numbers and that's it
 export function test_entry (input){
+    // Tests if the entry code is valid or not
+    // Returns the localisation of the destination (i+1) in the listDestinations if it exists !
     let valid = regex.test(input);
     if (valid !== true){
         console.log("Este codigo no es valido !")
