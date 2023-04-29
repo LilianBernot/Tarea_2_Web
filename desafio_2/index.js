@@ -43,7 +43,7 @@ console.log("ESTE herramienta esta desarrollado para cifrar un archivo con la ro
 // console.log("Data :" + data);
 
 // const modified_data = modify_data('abc', 1);
-const modified_data = modify_data_unicode('abcü', 10);
+const modified_data = modify_data_unicode('abcü', 25);
 
 // write_something(path_name + output_name, "contenido : " + data);
 

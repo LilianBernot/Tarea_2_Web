@@ -5,7 +5,12 @@ const asciiCodes = [97, 98, 99, 100,
     164,
     160,  130, 161, 162, 163, 129];
 
-const unicode = ['\\u0061', "\\u0062", "\\u0063", "\\u0064", "\\u0065", "\\u0066", "\\u0067", "\\u0068", "\\u0069"]
+const unicode = ['\\u0061', "\\u0062", "\\u0063", "\\u0064", "\\u0065", "\\u0066", "\\u0067", "\\u0068", "\\u0069", 
+    '\\u006A', '\\u006B', '\\u006C', '\\u006D', '\\u006E', '\\u006F', 
+    '\\u0070', '\\u0071', '\\u0072','\\u0073', '\\u0074', '\\u0075', 
+    '\\u0076', '\\u0077', '\\u0078', '\\u0079', '\\u007A', 
+    '\\u00F1', '\\u00E1', '\\u00E9', '\\u00ED', '\\u00F3', '\\u00FC']
+
 const unicode_to_unicode = [{value: '\u0061'}, {value: '\u0062'}, {value: '\u0063'}, {value: '\u0064'}, {value: '\u0065'}, 
     {value: '\u0066'}, {value: '\u0067'}, {value: '\u0068'}, {value: '\u0069'}, 
     {value: '\u006A'}, {value: '\u006B'}, {value: '\u006C'}, {value: '\u006D'}, {value: '\u006E'}, {value: '\u006F'}, 
@@ -43,10 +48,11 @@ export function modify_data_unicode(data, rotation){
 
         var hex = data[i].codePointAt(0).toString(16);
         var result = "\\u" + "0000".substring(0, 4 - hex.length) + hex;
-        console.log(result);
 
         let index = unicode.indexOf(String(result));
+        console.log('index: ' + index);
         let new_index = (index + rotation) % unicode.length;
+        console.log(new_index);
         
         let new_char = unicode_to_unicode[new_index].value;
         asciiString += new_char;
